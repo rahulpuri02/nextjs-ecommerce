@@ -11,3 +11,5 @@ CREATE TABLE IF NOT EXISTS "products" (
 	"created_at" timestamp DEFAULT CURRENT_TIMESTAMP,
 	"updated_at" timestamp DEFAULT CURRENT_TIMESTAMP
 );
+--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "category_idx" ON "products" USING btree ("category");

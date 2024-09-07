@@ -1,5 +1,6 @@
 import { sql } from "drizzle-orm";
 import {
+  index,
   integer,
   json,
   pgTable,
@@ -21,4 +22,8 @@ export const products = pgTable("products", {
   stock: json("stock").notNull(),
   createdAt: timestamp("created_at").default(sql`CURRENT_TIMESTAMP`),
   updatedAt: timestamp("updated_at").default(sql`CURRENT_TIMESTAMP`),
+}, (table) => {
+  return {
+    categoryIdx: index('category_idx').on(table.category)
+  }
 });
