@@ -14,7 +14,6 @@ const authOptions: AuthOptions = {
             clientId: config.google.clientId as string,
             clientSecret: config.google.clientSecret as string,
             profile: async function(profile: GoogleProfile){
-                console.log('profile')
                 const data = {
                     firstName: profile.given_name,
                     lastName: profile.family_name,
@@ -42,11 +41,9 @@ const authOptions: AuthOptions = {
     callbacks: {
         //todo - add proper types
         session(data: any) {
-            console.log('session')
             return data;
         },
         jwt({ token, user }: {token: any, user: any}) {
-            console.log('token', token, user)
             if (user) {
                 token.role = user.role;
                 token.id = user.id;

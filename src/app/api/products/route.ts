@@ -23,7 +23,6 @@ export async function POST(req: NextRequest) {
   try {
     requestData = await req.formData();
   } catch (err) {
-    console.log(err);
     NextResponse.json({ message: "Unable to parse form data" },{ status: StatusCode.BAD_REQUEST });
   }
   const product = {
@@ -37,7 +36,6 @@ export async function POST(req: NextRequest) {
     colors: JSON.parse(requestData?.get("colors") as string),
     price: Number(requestData?.get("price") as string),
   };
-console.log(product)
   const { name,  brand, category, images, sizes, description, stock, colors, price} = product;
   if ( !name || !brand || !category || !images || !sizes || !description || !stock || !price || !colors) {
     return NextResponse.json({ message: "All fields are required" }, {status: StatusCode.BAD_REQUEST});
@@ -52,7 +50,6 @@ console.log(product)
    try {
     const folderName = generateFolderName(validateData.name, 6);
     const imagesUrls = [];
-    console.log(product.images.length)
     for(const image of product.images){
       const fileName = `${new Date().getTime()}.${image.type.split('/').at(-1)}`
       const filePath = path.join(process.cwd(), 'public/uploads', fileName);
