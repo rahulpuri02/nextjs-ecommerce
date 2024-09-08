@@ -34,3 +34,12 @@ export enum Category {
   PANTS = "pants",
   JEANS = "jeans",
 }
+
+
+export interface Product {
+  id: number,
+  name: string,
+  thumbnail: string,
+  images?: string[],
+  price: string
+}

@@ -1,8 +1,13 @@
 import Link from "next/link";
 import {
   CircleUser,
+  HomeIcon,
+  Layers,
+  LineChart,
   Menu,
   Package2,
+  ShoppingCart,
+  Users,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -16,9 +21,18 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import Sidebar, { navItems } from "./_components/sidebar";
+import Sidebar from "./_components/sidebar";
+
+const navItems = [
+  { label: 'Dashboard', href: '/admin', icon: HomeIcon },
+  { label: 'Orders', href: '/admin/orders', icon: ShoppingCart },
+  { label: 'Products', href: '/admin/products', icon: Layers },
+  { label: 'Customers', href: '/admin/customers', icon: Users },
+  { label: 'Analytics', href: '/admin/analytics', icon: LineChart },
+];
 
 const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
+  
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
       <Sidebar />

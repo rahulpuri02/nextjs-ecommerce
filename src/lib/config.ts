@@ -11,6 +11,9 @@ const _config = {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET
+    },
+    api: {
+      apiUrl: process.env.NEXT_PUBLIC_BACKEND_URL
     }
 }
 

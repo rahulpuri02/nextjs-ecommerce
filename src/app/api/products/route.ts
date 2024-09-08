@@ -70,6 +70,14 @@ export async function POST(req: NextRequest) {
    }
 }
 
+export async function GET(){
+  try {
+  const allProducts =  await db.select().from(products);
+  return NextResponse.json(allProducts, {status: StatusCode.OK})
+  }catch(err){
+    return NextResponse.json({message: 'Unable to fetch products from database'}, {status: StatusCode.INTERNAL_SERVER_ERROR})
+  }
+}
 
 
 
