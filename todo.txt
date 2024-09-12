@@ -1,0 +1,6 @@
+TODOS :
+
+Add proper types in authOptions for token and session - ⌛
+
+Delete images from cloudinary if server fails while creating new product - ⌛
+

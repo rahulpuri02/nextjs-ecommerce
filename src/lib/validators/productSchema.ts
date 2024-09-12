@@ -7,6 +7,7 @@ export const productSchema = z.object({
     .instanceof(File)
     .refine((file) => file.type.startsWith("image"))
     .array(),
+    thumbnail: z.instanceof(File).refine((file) => file.type.startsWith('image')),
   brand: z.string().min(3),
   sizes: z.string().array(),
   description: z

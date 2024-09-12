@@ -13,6 +13,7 @@ import {
 export const products = pgTable("products", {
   id: serial("id").primaryKey(),
   name: varchar("name", { length: 40 }).notNull(),
+  thumbnail: text('thumbnail'),
   images: text("images").array().notNull(),
   brand: varchar("brand", { length: 30 }).notNull().default("generic"),
   price: integer("price").notNull(),

@@ -1,7 +1,6 @@
 import { StatusCode } from "@/types";
 import { NextRequest, NextResponse } from "next/server";
 import path from "path";
-import { z } from "zod";
 import fs from 'fs/promises';
 import { productSchema } from "@/lib/validators/productSchema";
 import { generateFolderName } from "@/lib/helper";
@@ -10,7 +9,6 @@ import cloudinary, {v2}  from "cloudinary";
 import config from "@/lib/config";
 import { products } from "@/lib/db/schema";
 
-export type Product = z.infer<typeof productSchema>;
 
 cloudinary.v2.config({
   cloud_name: config.cloudinary.cloudName,
@@ -30,6 +28,7 @@ export async function POST(req: NextRequest) {
     brand: requestData?.get("brand"),
     category: requestData?.get("category"),
     images: requestData?.getAll("images") as File[],
+    thumbnail: requestData?.getAll("images")[0],
     sizes: JSON.parse(requestData?.get("sizes") as string),
     description: requestData?.get("description"),
     stock: typeof JSON.parse(requestData?.get("stock") as string) === 'string' ? JSON.parse(JSON.parse(requestData?.get("stock") as string)) : JSON.parse(requestData?.get("stock") as string),
@@ -63,7 +62,7 @@ export async function POST(req: NextRequest) {
        await fs.unlink(filePath);
     }
     //todo delete images from cloudinary if server fails
-    await db.insert(products).values({...validateData, images: imagesUrls})
+    await db.insert(products).values({...validateData, images: imagesUrls, thumbnail: imagesUrls.at(0)})
      return NextResponse.json({ message: "OK" }, { status: StatusCode.OK });
    } catch(err){
    return  NextResponse.json({message: 'Eror while product to database'}, {status: StatusCode.INTERNAL_SERVER_ERROR})

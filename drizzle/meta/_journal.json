@@ -15,6 +15,13 @@
       "when": 1725744927238,
       "tag": "0001_quiet_frog_thor",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1726157950353,
+      "tag": "0002_dark_bromley",
+      "breakpoints": true
     }
   ]
 }

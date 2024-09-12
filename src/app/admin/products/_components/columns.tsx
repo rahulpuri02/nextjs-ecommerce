@@ -1,5 +1,4 @@
 'use client'
-import { Product } from "@/app/api/products/route";
 import { ColumnDef } from "@tanstack/react-table";
 import {
   DropdownMenu,
@@ -11,8 +10,19 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { MoreHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button"
-
+import Image from "next/image";
+import { Product } from "@/types";
 export const columns: ColumnDef<Product>[] = [
+  {
+    accessorKey: 'thumbnail',
+    header: 'Thumbnail',
+    cell: ({row}) => {
+      return (
+        <>
+        <Image src={row.original.thumbnail} alt={row.original.name} width={80} height={80}/>
+        </>
+      )}
+    },
   {
     accessorKey: "name",
     header: "Name",
@@ -44,12 +54,11 @@ export const columns: ColumnDef<Product>[] = [
         <DropdownMenuContent align="end">
           <DropdownMenuLabel>Actions</DropdownMenuLabel>
           <DropdownMenuItem
-            onClick={() => navigator.clipboard.writeText(String(row.id))}>
+            onClick={() => navigator.clipboard.writeText(String(row.original.id))}>
             Copy Product ID
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>View customer</DropdownMenuItem>
-          <DropdownMenuItem>View payment details</DropdownMenuItem>
+          <DropdownMenuItem>Edit Product</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
       )
