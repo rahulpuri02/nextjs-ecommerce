@@ -3,7 +3,6 @@ import {
   CircleUser,
   HomeIcon,
   Layers,
-  LineChart,
   Menu,
   Package2,
   ShoppingCart,
@@ -28,13 +27,13 @@ const navItems = [
   { label: 'Orders', href: '/admin/orders', icon: ShoppingCart },
   { label: 'Products', href: '/admin/products', icon: Layers },
   { label: 'Customers', href: '/admin/customers', icon: Users },
-  { label: 'Analytics', href: '/admin/analytics', icon: LineChart },
 ];
 
 const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
   
   return (
-    <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
+   <div>
+     <div className="grid min-h-[81.5vh] w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
       <Sidebar />
       <div className="flex flex-col">
         <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
@@ -95,11 +94,39 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
             </DropdownMenuContent>
           </DropdownMenu>
         </header>
-        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
+        <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6 mb-6">
           {children}
         </main>
       </div>
     </div>
+<footer className="w-[90vw]">
+    <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div className="sm:flex sm:items-center sm:justify-between">
+        <Link
+                  href="/admin"
+                  className="flex items-center gap-2 text-base font-semibold">
+                  <Package2 className="h-6 w-6" />
+                  NN74
+                </Link>
+            <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-muted-foreground mt-[9px] sm:mb-0 sm:mt-0">
+                {
+                  navItems.map((item,i) => {
+                    if(item.href !== '/admin/analytics'){
+                      return (
+                        <Link className="hover:underline me-4 md:me-6" key={i} href={item.href}>
+                          <li>{item.label}</li>
+                        </Link>
+                      )
+                    }
+                  })
+                }
+            </ul>
+        </div>
+        <hr className="my-6 border-1 sm:mx-auto lg:my-8" />
+        <span className="block text-sm text-muted-foreground sm:text-center">{`© ${new Date().getFullYear()} NN74 Clothing™ All Rights Reserved.`}</span>
+    </div>
+</footer>
+   </div>
   );
 };
 

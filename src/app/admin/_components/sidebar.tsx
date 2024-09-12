@@ -5,7 +5,6 @@ import {
     Bell,
     HomeIcon,
     Layers,
-    LineChart,
     Package2,
     ShoppingCart,
     Users,
@@ -18,7 +17,6 @@ export const navItems = [
     { label: 'Orders', href: '/admin/orders', icon: ShoppingCart },
     { label: 'Products', href: '/admin/products', icon: Layers },
     { label: 'Customers', href: '/admin/customers', icon: Users },
-    { label: 'Analytics', href: '/admin/analytics', icon: LineChart },
 ];
 
 const Sidebar = () => {

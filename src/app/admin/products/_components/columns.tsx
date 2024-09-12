@@ -1,4 +1,3 @@
-'use client'
 import { ColumnDef } from "@tanstack/react-table";
 import {
   DropdownMenu,
@@ -8,19 +7,28 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { MoreHorizontal } from "lucide-react";
+import {  MoreHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button"
 import Image from "next/image";
 import { Product } from "@/types";
+import Link from "next/link";
+import { TableCell } from "@/components/ui/table";
+import { Skeleton } from "@/components/ui/skeleton";
 export const columns: ColumnDef<Product>[] = [
   {
     accessorKey: 'thumbnail',
     header: 'Thumbnail',
     cell: ({row}) => {
       return (
-        <>
-        <Image src={row.original.thumbnail} alt={row.original.name} width={80} height={80}/>
-        </>
+        <TableCell className="hidden sm:table-cell">
+    {row?.original?.thumbnail ? (    <Image
+          alt={row.original.name}
+          className="aspect-square rounded-md object-cover"
+          height="64"
+          src={row.original.thumbnail}
+          width="64"
+        />): <Skeleton className="w-16 h-16 rounded-md" />}
+      </TableCell>
       )}
     },
   {
@@ -58,7 +66,9 @@ export const columns: ColumnDef<Product>[] = [
             Copy Product ID
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Edit Product</DropdownMenuItem>
+         <Link href={`/admin/products/${row.original.id}`}>
+         <DropdownMenuItem className="cursor-pointer">Edit Product</DropdownMenuItem>
+         </Link>
         </DropdownMenuContent>
       </DropdownMenu>
       )
