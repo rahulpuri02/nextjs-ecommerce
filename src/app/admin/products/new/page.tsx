@@ -38,7 +38,7 @@ import {
   ToggleGroupItem,
 } from "@/components/ui/toggle-group"
 import { Category } from "@/types"
-import { colors } from "@/constants"
+import { colors } from "@/constants/index"
 
 
 export const description =
@@ -136,8 +136,8 @@ export default function NewProductPage() {
                     </SelectTrigger>
                     <SelectContent>
                       {colors.map((category) => (
-                        <SelectItem key={category.colorCode} value={category.colorCode}>
-                          {category.name.charAt(0).toUpperCase() + category.name.slice(1)}
+                        <SelectItem key={category} value={category}>
+                          {category.charAt(0).toUpperCase() + category.slice(1)}
                         </SelectItem>
                       ))}
                     </SelectContent>
