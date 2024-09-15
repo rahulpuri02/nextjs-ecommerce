@@ -14,6 +14,7 @@ const config: Config = {
 			sans: ['var(--font-sans)', ...fontFamily.sans],
 		},
   		colors: {
+			customBlue: '#294699',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

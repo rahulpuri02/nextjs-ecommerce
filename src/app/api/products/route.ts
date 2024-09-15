@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
     thumbnail: requestData?.getAll("images")[0],
     sizes: JSON.parse(requestData?.get("sizes") as string),
     description: requestData?.get("description"),
-    stock: typeof JSON.parse(requestData?.get("stock") as string) === 'string' ? JSON.parse(JSON.parse(requestData?.get("stock") as string)) : JSON.parse(requestData?.get("stock") as string),
+    stock: JSON.parse(requestData?.get("stock") as string),
     colors: JSON.parse(requestData?.get("colors") as string),
     price: Number(requestData?.get("price") as string),
   };
@@ -47,22 +47,25 @@ export async function POST(req: NextRequest) {
    }
   
    try {
-    const folderName = generateFolderName(validateData.name, 6);
-    const imagesUrls = [];
-    for(const image of product.images){
-      const fileName = `${new Date().getTime()}.${image.type.split('/').at(-1)}`
+     const folderName = generateFolderName(validateData.name, 6);
+    const uploadImage = async (image: File) => {
+      const fileName = `${new Date().getTime()}.${image.type.split('/').at(-1)}`;
       const filePath = path.join(process.cwd(), 'public/uploads', fileName);
       const buffer = Buffer.from(await image.arrayBuffer());
-       await fs.writeFile(filePath, buffer);
+      await fs.writeFile(filePath, buffer);
       const result = await v2.uploader.upload(filePath, {
-        folderName: `nextjs-ecommerce/products/${folderName}`,
+        folder: `nextjs-ecommerce/products/${folderName}`,
         resource_type: 'image',
-       })
-       imagesUrls.push(result.secure_url);
-       await fs.unlink(filePath);
-    }
+      });
+      await fs.unlink(filePath);
+      return result.secure_url;
+    };
+    
+    const imagesUrls = await Promise.all(
+      product.images.map((image) => uploadImage(image))
+    );
     //todo delete images from cloudinary if server fails
-    await db.insert(products).values({...validateData, images: imagesUrls, thumbnail: imagesUrls.at(0)})
+    await db.insert(products).values({...validateData, images: imagesUrls, thumbnail: imagesUrls.at(0), discount: typeof Number(requestData?.get('discount')) === 'number' ? Number(requestData?.get('discount')) : 0})
      return NextResponse.json({ message: "OK" }, { status: StatusCode.OK });
    } catch(err){
    return  NextResponse.json({message: 'Eror while product to database'}, {status: StatusCode.INTERNAL_SERVER_ERROR})
