@@ -17,6 +17,7 @@ export const products = pgTable("products", {
   images: text("images").array().notNull(),
   brand: varchar("brand", { length: 30 }).notNull().default("generic"),
   price: integer("price").notNull(),
+  discount: integer('discount_in_percantage').default(0),
   category: varchar("category", { length: 25 }).notNull(),
   sizes: varchar("sizes", { length: 10 }).array().notNull(),
   colors: text("colors").array().notNull(),

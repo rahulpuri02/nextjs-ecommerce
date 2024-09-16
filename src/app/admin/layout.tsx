@@ -53,7 +53,7 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
                   href="#"
                   className="flex items-center gap-2 text-base font-semibold">
                   <Package2 className="h-6 w-6" />
-                  NN74
+                  NN CLOTHING
                 </Link>
                 {navItems.map((item, i) => {
                   return (
@@ -106,7 +106,7 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
                   href="/admin"
                   className="flex items-center gap-2 text-base font-semibold">
                   <Package2 className="h-6 w-6" />
-                  NN74
+                  NN CLOTHING
                 </Link>
             <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-muted-foreground mt-[9px] sm:mb-0 sm:mt-0">
                 {
@@ -123,11 +123,11 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
             </ul>
         </div>
         <hr className="my-6 border-1 sm:mx-auto lg:my-8" />
-        <span className="block text-sm text-muted-foreground sm:text-center">{`© ${new Date().getFullYear()} NN74 Clothing™ All Rights Reserved.`}</span>
+        <span className="block text-sm text-muted-foreground sm:text-center">{`© ${new Date().getFullYear()} NN Clothing™ All Rights Reserved.`}</span>
     </div>
 </footer>
    </div>
   );
 };
 
-export default DashboardLayout;
+export default DashboardLayout

@@ -31,6 +31,7 @@ export enum Category {
   JACKETS = "jackets",
   SHIRTS = "shirts",
   TSHIRTS = "t-shirts",
+  POLOSHIRTS = "polo-shirts",
   PANTS = "pants",
   JEANS = "jeans",
 }
