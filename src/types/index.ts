@@ -36,11 +36,28 @@ export enum Category {
   JEANS = "jeans",
 }
 
+export interface StockItem {
+  size: string | number;
+  qty: number;
+}
+
+export interface ColorStock {
+  color: string;
+  sizes: StockItem[];
+}
 
 export interface Product {
-  id: number,
-  name: string,
-  thumbnail: string,
-  images?: string[],
-  price: string
+  id: number;
+  name: string;
+  thumbnail: string;
+  images: string[];
+  brand: string;
+  price: number;
+  discount: number;
+  category: string;
+  sizes: string[] | number[];
+  colors: string[];
+  stock: ColorStock[];
+  createdAt: string;
+  updatedAt: string;
 }

@@ -24,9 +24,9 @@ const Footer = () => {
           </div>
         </div>
       {/* 2nd Side  */}
-      <div className='w-[55%] pl-10 text-2xl font-semibold'>
+      <div className='w-[55%] pl-10 text-xl font-semibold'>
         <div className='flex'>
-          <div className='w-[35%]'>
+          <div className='w-[31%]'>
             <div>CUSTOMER SERVICE
               <div className='mt-6 flex flex-col gap-[3px]'>
               {
@@ -37,7 +37,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className='w-[35%]'>
+          <div className='w-[31%]'>
           <div>ABOUT US</div>
           <div className='mt-6 flex flex-col gap-[3px]'>
           {
@@ -47,7 +47,7 @@ const Footer = () => {
               }
               </div>
           </div>
-          <div className='w-[35%]'>
+          <div className='w-[31%]'>
             <div>SOCIAL</div>
             <div className='mt-6 flex flex-col gap-[3px]'>
               {
@@ -77,8 +77,8 @@ const Footer = () => {
       </div>
   </div>
   {/* Bottom  */}
-  <div className='text-2xl font-semibold flex gap-3 pb-8 md:pb-10 pt-6'> 
-    <Heart className='w-[29px] h-auto stroke-white fill-white'/> 
+  <div className='text-xl font-semibold flex gap-3 pb-8 md:pb-10 pt-6'> 
+    <Heart className='w-[27px] h-auto stroke-white fill-white'/> 
     <p>Developed By Rahul Puri</p>
   </div>
     </div>

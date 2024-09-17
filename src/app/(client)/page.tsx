@@ -1,6 +1,17 @@
+'use client'
+
+import { getProducts } from "@/http/api";
 import NewArrivals from "./_components/new-arrivals";
+import { useQuery } from "@tanstack/react-query"
+import { Product } from "@/types";
 
 export default function Home() {
+
+ const {data: newProducts, isFetching} = useQuery({
+  queryKey: ['new-arrivals'],
+  queryFn: getProducts,
+ })
+
   return (
 <div className="w-full min-h-screen">
 <div className="w-full h-screen relative">
@@ -12,7 +23,7 @@ export default function Home() {
   </div>
 
   {/* New Arivals */}
-  <NewArrivals />
+  <NewArrivals isLoading={isFetching} newProducts={newProducts as Product[]} />
 </div>
   );
 }
