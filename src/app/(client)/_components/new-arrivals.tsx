@@ -59,7 +59,11 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ isLoading, newProducts }) => 
                       {Array.from({ length: product.colors.length }).map((_, i) => (
                         <div className="w-2 h-2 md:w-3.5 md:h-3.5 bg-customBlue" key={i}></div>
                       ))}
-                      {/* <div className="ml-[1px] sm:ml-[2px] tracking-wide hidden">+{product.extraColors}</div> */}
+                     {
+                      product.colors.length > 3 && (
+                        <div className="ml-[1px] sm:ml-[2px] tracking-wide hidden">+{product.colors.length-3}</div>
+                      )
+                     }
                     </div>
                     <p>₹ {product.price}</p>
                   </div>

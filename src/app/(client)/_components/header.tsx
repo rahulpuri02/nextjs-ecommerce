@@ -41,7 +41,7 @@ const Header = () => {
     </div>
 
     {/* Center */}
-    <p className="font-bold text-base sm:text-xl md:text-3xl text-white">NN CLOTHING</p>
+    <p className="font-bold text-base sm:text-xl md:text-3xl text-white transform -translate-x-[11px]">NN CLOTHING</p>
 
     {/* Right Side */}
     <div className="flex items-center gap-6">
