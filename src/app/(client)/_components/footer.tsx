@@ -53,7 +53,7 @@ const Footer = () => {
           </div>
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="about-us" className='border-none'>
+      <AccordionItem value="about-us" className='border-none mt-0'>
         <AccordionTrigger className='hover:no-underline uppercase'>About Us</AccordionTrigger>
         <AccordionContent>
           <div className="flex flex-col gap-[3px] mt-1 sm:mt-2 cursor-pointer">
@@ -63,7 +63,7 @@ const Footer = () => {
           </div>
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="socials" className='border-none'>
+      <AccordionItem value="socials" className='border-none mt-0'>
         <AccordionTrigger className='hover:no-underline uppercase mb-1 sm:mb-2'>Socials</AccordionTrigger>
         <AccordionContent>
           <div className="flex flex-col gap-[3px] mt-1 sm:mt-2 cursor-pointer">
@@ -80,7 +80,7 @@ const Footer = () => {
   <div className="hidden xl:flex w-full justify-between">
     <div className="w-[31%]">
       <div>CUSTOMER SERVICE</div>
-      <div className="flex flex-col gap-[3px] mt-1 sm:mt-2 cursor-pointer">
+      <div className="mt-6 flex flex-col gap-[3px]">
         {footer.customerService.map((item, i) => (
           <div key={i}>{item}</div>
         ))}
@@ -126,10 +126,10 @@ const Footer = () => {
   </div>
   {/* Bottom  */}
   <div className='text-sm md:text-lg lg:text-xl font-semibold flex justify-between lg:gap-3 pb-8 md:pb-10 pt-6'> 
-   <div className='flex gap-1.5 md:gap-2 items-center'>
-   <Heart className='w-5 md:w-[24px] h-auto stroke-white fill-white'/> 
+   <a href='https://linkedin.com/in/rahulpuri02' target='_blank' className='flex gap-1.5 md:gap-2 items-center'>
+   <Heart className='w-[18px] md:w-[24px] h-auto stroke-white fill-white'/> 
    <p>Developed By Rahul Puri</p>
-   </div>
+   </a>
     <div className="xl:hidden flex start items-center xl:items-start gap-8">
     <Image
       src="https://nn07-production.s3.eu-west-1.amazonaws.com/2022/03/16123100/Visa-Grey.svg"

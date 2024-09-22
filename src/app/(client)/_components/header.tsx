@@ -1,9 +1,10 @@
 import React from 'react'
 import { NavigationMenu } from './navigation-menu'
+import Link from 'next/link';
 
 const Header = () => {
   return (
-<div className="h-16 md:h-24 md:px-6 z-50 absolute top-0 w-full">
+<div className="h-16 md:h-24 md:px-6 z-50 absolute top-0 w-full bg-customBlue">
   <div className="h-full w-full px-6 flex items-center justify-between">
     {/* Left Side */}
     <div className="flex items-center gap-6">
@@ -27,7 +28,9 @@ const Header = () => {
     </div>
 
     {/* Center */}
-    <p className="font-bold text-base sm:text-xl md:text-3xl text-white transform -translate-x-[11px]">NN CLOTHING</p>
+  <Link href={'/'}>
+  <p className="font-bold text-base sm:text-xl md:text-3xl text-white transform -translate-x-[11px]">NN CLOTHING</p>
+  </Link>
 
     {/* Right Side */}
     <div className="flex items-center gap-6">
