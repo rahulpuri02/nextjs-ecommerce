@@ -44,7 +44,7 @@ const Footer = () => {
   <div className="xl:hidden text-sm sm:text-base">
     <Accordion type="single" collapsible className="w-full">
       <AccordionItem value="customer-service" className='border-none'>
-        <AccordionTrigger className='hover:no-underline uppercase mb-1 sm:mb-2'>Customer Service</AccordionTrigger>
+        <AccordionTrigger className='hover:no-underline uppercase'>Customer Service</AccordionTrigger>
         <AccordionContent>
           <div className="flex flex-col gap-[3px]">
             {footer.customerService.map((item, i) => (

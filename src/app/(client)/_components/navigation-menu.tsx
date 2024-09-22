@@ -18,7 +18,7 @@ export function NavigationMenu() {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="h-7 w-7 md:h-12 md:w-12 stroke-[1.5px] stroke-white">
+            className="h-7 w-7 md:h-8 md:w-8 stroke-[1.5px] stroke-white">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"

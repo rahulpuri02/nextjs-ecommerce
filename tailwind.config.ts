@@ -15,6 +15,7 @@ const config: Config = {
   		},
   		colors: {
   			customBlue: '#294699',
+			customGray: '#999999',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

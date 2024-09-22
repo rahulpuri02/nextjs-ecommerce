@@ -1,9 +1,9 @@
 'use client'
 import React from 'react'
-import ProductCard from '../_components/Product-card'
 import { useQuery } from '@tanstack/react-query'
 import { getProducts } from '@/http/api'
 import SkeltonProduct from '../_components/skelton-product'
+import ProductCard from '../_components/product-card'
 
 const SeeAllProductsPage = () => {
     const {data : products, isFetching} = useQuery({

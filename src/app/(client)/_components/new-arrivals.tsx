@@ -6,6 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton'; // Import Skeleton from shadcn
 import Image from 'next/image';
 import { Product } from '@/types';
+import Link from 'next/link';
 
 type NewArrivalsProps = {
   isLoading: boolean;
@@ -43,7 +44,8 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ isLoading, newProducts }) => 
           ) : (
             newProducts.length > 0 && newProducts?.map((product, index: number) => (
               <CarouselItem key={index} className="basis-1/2 sm:basis-1/3 md:pl-7">
-                <Card className="p-0 border-none">
+             <Link href={`/products/${product.id}`}>
+             <Card className="p-0 border-none">
                   <CardContent className="flex aspect-square p-0">
                     <Image
                       src={product.thumbnail}
@@ -53,7 +55,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ isLoading, newProducts }) => 
                     />
                   </CardContent>
                   {/* Product Details */}
-                  <div className="flex flex-col mt-[9px] gap-[1.5px] pl-2 md:ml-[1px] text-xs sm:text-lg">
+                  <div className="flex flex-col mt-[9px] gap-[1.5px] pl-2 md:ml-[1px] text-xs sm:text-sm">
                     <p>{product.brand} - {product.name}</p>
                     <div className="flex items-center gap-1.5">
                       {Array.from({ length: product.colors.length }).map((_, i) => (
@@ -68,6 +70,7 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ isLoading, newProducts }) => 
                     <p>₹ {product.price}</p>
                   </div>
                 </Card>
+             </Link>
               </CarouselItem>
             ))
           )}

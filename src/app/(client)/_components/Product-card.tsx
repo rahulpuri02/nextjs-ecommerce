@@ -27,7 +27,7 @@ const ProductCard = ({ product }: { product: Product }) => {
         height={600}
       />
       {/* Product Details */}
-      <div className="flex flex-col mt-[9px] gap-[1.5px] pl-2 md:ml-[1px] text-xs sm:text-lg">
+      <div className="flex flex-col mt-[9px] gap-[1.5px] pl-2 md:ml-[1px] text-xs sm:text-sm">
         <p>
           {product.brand} - {product.name}
         </p>

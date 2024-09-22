@@ -4,14 +4,14 @@ import Link from 'next/link';
 
 const Header = () => {
   return (
-<div className="h-16 md:h-24 md:px-6 z-50 absolute top-0 w-full bg-customBlue">
+<div className="h-16 md:h-24 md:px-6 z-50 absolute top-0 w-full">
   <div className="h-full w-full px-6 flex items-center justify-between">
     {/* Left Side */}
     <div className="flex items-center gap-6">
      <NavigationMenu />
       <button>
         <svg
-          className="h-6 w-6 md:h-9 md:w-9 md:ml-2 stroke-white"
+          className="h-6 w-6 md:h-7 md:w-7 md:ml-2 stroke-white"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -29,14 +29,14 @@ const Header = () => {
 
     {/* Center */}
   <Link href={'/'}>
-  <p className="font-bold text-base sm:text-xl md:text-3xl text-white transform -translate-x-[11px]">NN CLOTHING</p>
+  <p className="font-bold text-base sm:text-xl md:text-2xl text-white transform -translate-x-[11px]">NN CLOTHING</p>
   </Link>
 
     {/* Right Side */}
     <div className="flex items-center gap-6">
       <button>
         <svg
-          className="stroke-1 h-5 w-[15px] md:h-8 md:w-12 stroke-white fill-none"
+          className="stroke-1 h-5 w-[15px] md:w-6 stroke-white fill-none"
           viewBox="0 0 13 16"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,7 @@ const Header = () => {
         </svg>
       </button>
       <button>
-      <svg className='w-[15px] h-5 md:h-8 md:w-12 fill-white stroke-1' viewBox="0 0 15 20" xmlns="http://www.w3.org/2000/svg"><defs></defs><path fillRule="evenodd" d="M4.5 1.5h6V5h-6V1.5zM3 5V0h9v5h3v15H0V5h3zm9 1.5H1.5v12h12v-12H12z"></path></svg>
+      <svg className='w-[15px] h-5 md:w-6 fill-white stroke-1' viewBox="0 0 15 20" xmlns="http://www.w3.org/2000/svg"><defs></defs><path fillRule="evenodd" d="M4.5 1.5h6V5h-6V1.5zM3 5V0h9v5h3v15H0V5h3zm9 1.5H1.5v12h12v-12H12z"></path></svg>
 
       </button>
     </div>
