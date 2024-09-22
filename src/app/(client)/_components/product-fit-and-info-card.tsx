@@ -7,7 +7,7 @@ const ProductFitAndInfoCard = () => {
     <div className='text-xs md:text-sm font-light mt-3 md:mt-4'>
           <Accordion type="single" collapsible className="w-full text-xs md:text-sm">
       <AccordionItem value="customer-service" className='border-none text-xs'>
-        <AccordionTrigger className='hover:no-underline uppercase font-light text-xs md:text-sm'>Customer Service</AccordionTrigger>
+        <AccordionTrigger className='hover:no-underline uppercase font-light text-xs'>Customer Service</AccordionTrigger>
         <AccordionContent>
           <div className="flex flex-col gap-[3px]">
             {footer.customerService.map((item, i) => (
