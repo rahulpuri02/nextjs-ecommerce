@@ -15,7 +15,7 @@ type NewArrivalsProps = {
 const NewArrivals: React.FC<NewArrivalsProps> = ({ isLoading, newProducts }) => {
   return (
     <div className="px-6 md:px-14 xl:px-32 py-6 md:py-10">
-      <h2 className="font-medium text-[4vw] sm:text-[2vw] text-center mb-6 md:mb-8">New Arrivals</h2>
+      <h2 className="font-medium text-lg sm:text-2xl text-center mb-6 md:mb-8">New Arrivals</h2>
 
       <Carousel
         opts={{

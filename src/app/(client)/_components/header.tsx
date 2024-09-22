@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavigationMenu } from './navigation-menu'
 
 const Header = () => {
   return (
@@ -6,22 +7,7 @@ const Header = () => {
   <div className="h-full w-full px-6 flex items-center justify-between">
     {/* Left Side */}
     <div className="flex items-center gap-6">
-      <button>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="white"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="h-7 w-7 md:h-12 md:w-12 stroke-[1.5px] stroke-white"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M3.75 9h16.5m-16.5 6.75h16.5"
-          />
-        </svg>
-      </button>
+     <NavigationMenu />
       <button>
         <svg
           className="h-6 w-6 md:h-9 md:w-9 md:ml-2 stroke-white"
