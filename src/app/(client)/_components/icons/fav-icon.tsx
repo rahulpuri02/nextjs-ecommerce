@@ -3,7 +3,7 @@ import React from 'react'
 const FavIcon = () => {
   return (
     <svg
-    className="stroke-1 h-5 w-[15px] md:h-8 md:w-12 stroke-black fill-none"
+    className="stroke-1 h-5 w-[15px]  md:w-6 stroke-black fill-none"
     viewBox="0 0 13 16"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"

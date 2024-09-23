@@ -5,7 +5,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { getProduct } from "@/http/api";
+import { getProduct, getProducts } from "@/http/api";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { useParams } from "next/navigation";
@@ -13,6 +13,7 @@ import React from "react";
 import FavIcon from "../../_components/icons/fav-icon";
 import { Button } from "@/components/ui/button";
 import ProductFitAndInfoCard from "../../_components/product-fit-and-info-card";
+import NewArrivals from "../../_components/new-arrivals";
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -20,11 +21,17 @@ const ProductPage = () => {
     queryKey: ["product", id],
     queryFn: () => getProduct(+id as number),
   });
+ 
+  const { data: recommendadProducts, isFetching } = useQuery({
+    queryKey: ["recommended-products"],
+    queryFn: getProducts,
+  });
+
   return (
-    <div className="w-full mb-20 min-h-[160vh]">
+    <div className="w-full mb-14 md:mb-20 min-h-[160vh]">
       {product && (
         <div className="flex flex-col gap-6 md:gap-10">
-          <div className="lg:hidden w-full max-h-screen">
+          <div className="xl:hidden w-full max-h-screen">
             {product && product.images.length && (
               <Carousel
                 opts={{
@@ -36,10 +43,13 @@ const ProductPage = () => {
                     <CarouselItem key={index} className="basis-full p-0">
                       <Card className="p-0 border-none">
                         <Image
+                        className="h-screen w-screen"
                           src={image}
                           width={1080}
                           height={1080}
                           alt={image}
+                          placeholder="blur"
+                          blurDataURL={product.thumbnail}
                         />
                       </Card>
                     </CarouselItem>
@@ -93,6 +103,9 @@ const ProductPage = () => {
           </div>
         </div>
       )}
+      <div className="p-6 pb-0 text-xs md:text-sm">
+       <NewArrivals isLoading={isFetching} newProducts={recommendadProducts?.length ? recommendadProducts : []} heading='RECOMMENDED FOR YOU' />
+      </div>
     </div>
   );
 };

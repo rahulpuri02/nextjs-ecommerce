@@ -38,7 +38,7 @@ const Footer = () => {
 </div>
         </div>
       {/* 2nd Side  */}
-      <div className='w-full xl:w-[55%] xl:pl-10 text-xl font-semibold'>
+      <div className='w-full xl:w-[55%] xl:pl-10 text-base font-semibold'>
       <div className="flex flex-col xl:gap-0 xl:flex-row">
   {/* Accordion for screens <= xl */}
   <div className="xl:hidden text-sm sm:text-base">
@@ -125,9 +125,9 @@ const Footer = () => {
       </div>
   </div>
   {/* Bottom  */}
-  <div className='text-sm md:text-lg lg:text-xl font-semibold flex justify-between lg:gap-3 pb-8 md:pb-10 pt-6'> 
+  <div className='text-sm md:text-lg lg:text-base font-semibold flex justify-between lg:gap-3 pb-8 md:pb-10 pt-6'> 
    <a href='https://linkedin.com/in/rahulpuri02' target='_blank' className='flex gap-1.5 md:gap-2 items-center'>
-   <Heart className='w-[18px] md:w-[24px] h-auto stroke-white fill-white'/> 
+   <Heart className='w-4 h-4 stroke-white fill-white'/> 
    <p>Developed By Rahul Puri</p>
    </a>
     <div className="xl:hidden flex start items-center xl:items-start gap-8">

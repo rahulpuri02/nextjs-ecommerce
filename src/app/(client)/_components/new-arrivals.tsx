@@ -11,23 +11,24 @@ import Link from 'next/link';
 type NewArrivalsProps = {
   isLoading: boolean;
   newProducts: Product[];
+  heading?: string;
 };
 
-const NewArrivals: React.FC<NewArrivalsProps> = ({ isLoading, newProducts }) => {
+const NewArrivals: React.FC<NewArrivalsProps> = ({ isLoading, newProducts, heading }) => {
   return (
-    <div className="px-6 md:px-14 xl:px-32 py-6 md:py-10">
-      <h2 className="font-normal text-2xl md:text-4xl xl:text-5xl tracking-normal text-center mb-8 md:mb-14 mt-5 md:mt-14">New Arrivals</h2>
+    <div className="px-6">
+      <h2 className="font-normal text-base md:text-xl xl:text-2xl uppercase tracking-normal text-center mb-8 md:mb-14 mt-5 md:mt-14">{heading ? heading : 'New Arrivals'}</h2>
 
       <Carousel
         opts={{
           align: "start",
         }}
-        className="w-full"
+        className="w-full border-none"
       >
         <CarouselContent>
           {isLoading ? (
             Array.from({ length: 10 }).map((_, index) => (
-              <CarouselItem key={index} className="basis-1/2 sm:basis-1/3 md:pl-7">
+              <CarouselItem key={index} className="basis-1/2 sm:basis-1/3 md:pl-3 border-none">
                 <Card className="p-0 border-none">
                   <CardContent className="flex aspect-square p-0">
                     <Skeleton className="w-full h-full" />
@@ -42,16 +43,17 @@ const NewArrivals: React.FC<NewArrivalsProps> = ({ isLoading, newProducts }) => 
               </CarouselItem>
             ))
           ) : (
-            newProducts.length > 0 && newProducts?.map((product, index: number) => (
-              <CarouselItem key={index} className="basis-1/2 sm:basis-1/3 md:pl-7">
+            newProducts.length > 0 && newProducts?.concat(newProducts).map((product, index: number) => (
+              <CarouselItem key={index} className="basis-1/2 md:basis-1/3 md:pl-3">
              <Link href={`/products/${product.id}`}>
              <Card className="p-0 border-none">
                   <CardContent className="flex aspect-square p-0">
                     <Image
+                    className='w-full h-auto'
                       src={product.thumbnail}
                       alt={product.name}
-                      width={750}
-                      height={750}
+                      width={800}
+                      height={800}
                     />
                   </CardContent>
                   {/* Product Details */}
